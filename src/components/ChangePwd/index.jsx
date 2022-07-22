@@ -1,7 +1,8 @@
 import { Component } from 'react'
 import { Form, message, Modal } from 'antd'
 import { CommonModal } from '@c/index'
-import { generateRules, encrypt } from '@u/common'
+import { generateRules, encrypt,clearCookie } from '@u/common'
+
 import { pwdPattern } from '@u/regExp'
 import api from '@/services'
 import './style.less'
@@ -28,7 +29,8 @@ class UpgradeSet extends Component {
   logout = () => {
     Modal.destroyAll()
     api.logout({ token: sessionStorage.getItem('token') }).then(res => {
-      sessionStorage.clear()
+      sessionStorage.clear();
+      clearCookie();
       this.props.history.push('/login')
     }).catch(err => { })
   }

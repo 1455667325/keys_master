@@ -8,7 +8,7 @@ const { Item } = Form
 
 @withRouter
 class Index extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       searchValues: {},
@@ -22,11 +22,11 @@ class Index extends Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.getList()
   }
 
-  render () {
+  render() {
     let { record, pagingParameter, body, visible } = this.state
     const columns = [
       {
@@ -34,6 +34,12 @@ class Index extends Component {
         dataIndex: 'keyword',
         render: text => TooltipFn(text),
       },
+      {
+        title: '关键词位置',
+        dataIndex: 'keywordPos',
+        render: text => this.keywordPosText(text),
+      },
+
       {
         title: '操作',
         dataIndex: 'operate',
@@ -61,6 +67,20 @@ class Index extends Component {
         key: 'keyword',
         defaultValue: record && record.keyword,
         type: 'input', rules: [{ required: true, message: '请输入关键词' }, { max: 10, message: '最大10个字符' }, { whitespace: true, message: '关键词不能为空！' }]
+      },
+      {
+        name: '关键词位置',
+        key: 'keywordPos',
+        defaultValue: record && record.keywordPos,
+        type: 'checkboxGroup',
+        data: [{
+          label: "句首", value: "100"
+        }, {
+          label: "句中", value: "010"
+        }, {
+          label: "句尾", value: "001"
+        }],
+        rules: [{ required: true, message: '请选择关键词位置' }]
       }
     ]
     const formLayout = {
@@ -136,7 +156,15 @@ class Index extends Component {
     if (record) {
       url = 'editKeyword'
     }
-    api[url](data).then(res => {
+    let keywordChoose = data.keywordPos;
+    let pos = ["0", "0", "0"];
+    keywordChoose.forEach((p) => {
+      if (p == "100") pos[0] = "1";
+      if (p == "010") pos[1] = "1";
+      if (p == "001") pos[2] = "1";
+    });
+    let params = { [data.keyword]: pos.join("") };
+    api[url](params).then(res => {
       message.success('操作成功')
       this.setState({
         visible: false,
@@ -161,7 +189,7 @@ class Index extends Component {
       okText: '确认',
       cancelText: '取消',
       onOk: () => {
-        api.deleteKeyword({ keyword }).then(res => {
+        api.deleteKeyword({ word:keyword }).then(res => {
           message.success('删除成功')
           this.getList()
         })
@@ -181,7 +209,8 @@ class Index extends Component {
       res.data = (res.data || []).map((item, i) => {
         return {
           id: i,
-          keyword: item.word
+          keyword: item.word,
+          keywordPos: item.location
         }
       })
       this.setState({
@@ -218,6 +247,15 @@ class Index extends Component {
         page
       }
     }, this.getList)
+  }
+  keywordPosText = (text) => {
+    let posTest = [];
+    text.split("").forEach((t, index) => {
+      if (t == 1 && index == 0) posTest.push("句首");
+      if (t == 1 && index == 1) posTest.push("句中");
+      if (t == 1 && index == 2) posTest.push("句尾");
+    })
+    return posTest.join(",")
   }
 
 }

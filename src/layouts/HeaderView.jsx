@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 import { Layout, Avatar, Menu, Dropdown, Modal } from 'antd'
 import ChangePwd from '@c/ChangePwd'
 import './style.less'
+import {clearCookie } from '@u/common'
+
 
 const { Header } = Layout
 
@@ -28,6 +30,7 @@ class index extends PureComponent {
       cancelText: '取消',
       onOk: () => {
         sessionStorage.clear()
+        clearCookie()
         this.props.history.push('/login')
       }
     })

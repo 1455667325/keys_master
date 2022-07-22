@@ -5,11 +5,11 @@ export const getKeywordList = (params) => {
 }
 // 添加关键词
 export const addKeyword = (params) => {
-  return request('/keyword', params, 'put')
+  return request('/keyword', params, 'post')
 }
 // 编辑关键词
 export const editKeyword = (params) => {
-  return request('/keyword', params, 'put')
+  return request('/keyword', params, 'post')
 }
 // 删除关键词
 export const deleteKeyword = (params) => {
