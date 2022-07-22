@@ -1,12 +1,9 @@
-import Axios from 'axios'
+import axios from 'axios'
 import qs from 'qs'
 import { message } from 'antd'
 import { LOGINOUT_CODES, BASE_URL } from '@/assets/js/enume'
-  // Axios.defaults.withCredentials=true
-const instance = new Axios.create({
-	    withCredentials: true,
-	  })
-// axios.defaults.withCredentials=true
+
+axios.defaults.withCredentials=true
 function checkStatus (res) {
   const loginoutCodes = Object.keys(LOGINOUT_CODES).map(key => LOGINOUT_CODES[key])
   if (res.status >= 200 && res.status < 300) {
@@ -66,12 +63,11 @@ const fetch = (url, data = {}, method) => {
     }
     // 发起请求
     return new Promise((resolve, reject) => {
-      instance({
+      axios({
         method,
         url,
         data: result,
         headers,
-        // withCredentials: true
       })
         .then(checkStatus)
         .then(res => {
@@ -92,13 +88,9 @@ const fetch = (url, data = {}, method) => {
       let params ={
         method,
         url,
-        // headers,
-        // withCredentials: true
+        headers,
       }
-      // if(url.indexOf("login")<0){
-      //   params.withCredentials = true;
-      // }
-      instance(params)
+      axios(params)
         .then(checkStatus)
         .then(res => {
           resolve(res.data)
