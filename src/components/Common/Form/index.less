@@ -1,0 +1,62 @@
+@import '~@/assets/less/vars.less';
+.PopoverInput {
+  //组件必须写自己单独的作用域css
+  .form-content {
+    .ant-form {
+      display: flex;
+    }
+    .form-wrap {
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      // overflow: hidden;
+      .switch-label {
+        padding: 0 10px;
+      }
+      .ant-form-item-control {
+        position: relative;
+        .ant-form-extra {
+          min-height: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+.modal-form-item-datepicker {
+  width: 100%;
+}
+.popover-select {
+  position: absolute;
+  top: 10px;
+  right: -20px;
+  // right: calc(100% - 107px);
+  color: white;
+  .ant-popover {
+    .ant-popover-content {
+      .ant-popover-arrow {
+      }
+      .ant-popover-inner {
+        box-shadow: 0 2px 10px 0 rgba(59, 108, 255, 0.1);
+        border-radius: 2px;
+        width: 200px;
+        .ant-popover-inner-content {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.right-text {
+  color: #98acd9;
+}
+.button-center {
+  text-align: center;
+  > div {
+    button:first-child {
+      margin-right: 15px;
+    }
+  }
+}

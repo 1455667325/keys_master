@@ -1,0 +1,72 @@
+{
+  "id": "3236376",
+  "name": "keys",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "20104496",
+      "name": "敏感信息类型数",
+      "font_class": "minganxinxileixingshu",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "846528",
+      "name": "选词助手 查找",
+      "font_class": "xuancizhushouchazhao",
+      "unicode": "e890",
+      "unicode_decimal": 59536
+    },
+    {
+      "icon_id": "5961325",
+      "name": "bug",
+      "font_class": "bug",
+      "unicode": "ec63",
+      "unicode_decimal": 60515
+    },
+    {
+      "icon_id": "26393478",
+      "name": "icon_检索、搜索_1",
+      "font_class": "a-icon_jiansuosousuo_1",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "1304886",
+      "name": "收起菜单",
+      "font_class": "shouqicaidan",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "1304894",
+      "name": "展开菜单",
+      "font_class": "zhankaicaidan",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "2053191",
+      "name": "敏感关键字",
+      "font_class": "minganguanjianzi",
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    },
+    {
+      "icon_id": "12331680",
+      "name": "系统管理",
+      "font_class": "xitongguanli",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "2675009",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    }
+  ]
+}

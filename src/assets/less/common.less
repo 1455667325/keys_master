@@ -1,0 +1,165 @@
+@import "~@/assets/less/vars";
+
+//样式重置和公共CSS
+html,
+body,
+:global(#root) {
+  height: 100%;
+  overflow: hidden;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .link-color {
+    color: #22B37A;
+  }
+
+  ol,
+  ul {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    border: 0;
+  }
+
+  .no-touch {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .more-two-row {
+    // 超出两行省略号
+    overflow: hidden;
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /*! autoprefixer: on */
+    -webkit-line-clamp: 2;
+  }
+  .flex {
+    display: flex;
+  }
+
+  .text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  table tr td .ant-tooltip {
+    white-space: normal;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  table tr:not(.ant-table-expanded-row) td:not(.ant-table-selection-column) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .float-r {
+    float: right;
+  }
+
+  .float-l {
+    float: left;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .inline-block {
+    display: inline-block;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+
+  .focus-none:focus {
+    border-color: #d9d9d9;
+    color: rgba(0, 0, 0, .65);
+  }
+
+  .focus-none:hover {
+    border-color: #40a9ff;
+    color: #40a9ff;
+  }
+
+  //清除边距
+  .no-padding {
+    padding: 0 !important;
+  }
+
+  // scrollbar
+  ::-webkit-scrollbar-track {
+    background-color: #bbb;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 6px;
+  }
+
+  .hide-scroll {
+    &::-webkit-scrollbar {
+      width: 0 !important
+    }
+
+    & {
+      -ms-overflow-style: none;
+    }
+
+    & {
+      overflow: -moz-scrollbars-none;
+    }
+  }
+  .page-layout{
+    padding:0 20px 20px 30px;
+  }
+  .page-container{
+    padding: 20px;
+    min-height: calc(100% - 50px);
+    background-color: #fff;
+    .operate-wrap{
+      a{
+        margin-right: 10px;
+      }
+    }
+    .btn-container{
+      margin: 20px 0;
+    }
+    .table-wrap{
+      .table-pagination{
+        margin-top: 30px;
+        text-align: center;
+      }
+    }
+  }
+  .url-link{
+    color:@base-blue;
+  }
+}
