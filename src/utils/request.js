@@ -47,11 +47,11 @@ function errPrompt(msg) {
  * @return {object}           An object containing either "data" or "err"
  */
 const fetch = (url, data = {}, method) => {
+  method = method.toLowerCase();
   // url = `http://192.168.142.128:9889/school${url}`
   url = `http://localhost:9889/school${url}`
   // url = `http://192.168.31.21:9889/school${url}`
   const headers = {}
-  // console.log(headers)
   // 当请求为非上传类型时，设置Content-Type
   if (!(data instanceof FormData)) {
     headers['Content-Type'] = 'application/json; charset=UTF-8'
@@ -59,25 +59,35 @@ const fetch = (url, data = {}, method) => {
 
   // 处理参数
   if (method === 'post' || method === 'put') {
-    let result = new FormData()
-    Object.keys(data).forEach(item => {
-      result.append(item, data[item] ? data[item] : '')
-    })
+    // let result = new FormData()
+    // Object.keys(data).forEach(item => {
+    //   result.append(item, data[item] ? data[item] : '')
+    // })
     if (method === 'put') {
       url = data ? `${url}?${qs.stringify(data)}` : url
     }
-    //key是中文
-    if (url.includes('keyword') >= 0 && method === 'post') {
+    let params = {};
+    if (url.includes('keyword') && method === 'post') {
       result = JSON.stringify(data)
-    }
-    // 发起请求
-    return new Promise((resolve, reject) => {
-      axios({
+      params ={
           method,
           url,
           data: result,
           headers,
-        })
+        }
+    }
+    else{
+       headers['Content-Type'] = 'application/x-www-form-urlencoded'
+       params ={
+          method,
+          url,
+          data: qs.stringify(data),
+          headers,
+        }
+    }
+    // 发起请求
+    return new Promise((resolve, reject) => {
+      axios(params)
         .then(res => {
           resolve(res.data)
         })

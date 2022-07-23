@@ -5,6 +5,7 @@ import { Table, Pagination } from 'antd'
 import { TooltipFn } from '@u/common'
 import { Search } from '@c/index'
 import api from '@/services'
+import ImgLoad from "./imgTemp"
 @withRouter
 class Index extends Component {
   constructor (props) {
@@ -60,8 +61,11 @@ class Index extends Component {
       },
       {
         title: '页面快照',
-        dataIndex: 'pic',
-        render: text => TooltipFn(text)
+        dataIndex: 'png_id',
+        render: text => {
+          let imgUrl ='http://192.168.142.128/pic/'+text+".png"
+          return <ImgLoad imageUrl={imgUrl}></ImgLoad>
+        }
       },
       {
         title: '时间',
@@ -75,7 +79,8 @@ class Index extends Component {
           text = text || []
           return TooltipFn(text.join(','))
         }
-      }
+      },
+
     ]
     let list = [], total = 0
     if (body) {
@@ -170,6 +175,16 @@ class Index extends Component {
       }
     }, this.getList)
   }
+  imgTemp=(imgUrl)=>{
+    let class1="1"
+    return <img width="40px" src={imgUrl} class={class1} onError={(e)=>{e.target.className="2"}}/>
+  }
+  imgLoadError=function(e){
+    console.log(e.target,e.currentTarget)
+    e.target.style.display='none'
+  }
 }
+class imgTemp extends Component{
 
+}
 export default Index
