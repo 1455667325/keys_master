@@ -63,7 +63,8 @@ class Index extends Component {
         title: '页面快照',
         dataIndex: 'png_id',
         render: text => {
-          let imgUrl ='http://192.168.142.128/pic/'+text+".png"
+          // let imgUrl ='http://192.168.142.128/pic/'+text+".png" //dev
+          let imgUrl ='http://39.108.127.226/pic/'+text+".png" // pro
           return <ImgLoad imageUrl={imgUrl}></ImgLoad>
         }
       },

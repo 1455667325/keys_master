@@ -41,12 +41,18 @@ class Index extends Component {
       {
         title: '域名',
         dataIndex: 'host',
-        render: text => TooltipFn(text)
+        // render: text => TooltipFn(text)
+        render:(text,record)=>{
+         return <a href={record.url} rel="noopener noreferrer" target="_blank">{TooltipFn(text)}</a>
+        }
       },
       {
         title: 'URL',
         dataIndex: 'url',
-        render: text => TooltipFn(text)
+        // render: text => TooltipFn(text)
+        render:text=>{
+         return <a href={text} rel="noopener noreferrer" target="_blank">{TooltipFn(text)}</a>
+        }
       },
       {
         title: '更新时间',

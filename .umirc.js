@@ -85,8 +85,9 @@ export default {
   proxy: {
     '/school': {
       // target:'http://192.168.142.128:80',
-      target: 'http://localhost:9889',
-      // target: 'http://192.168.31.21:9889',
+      // target: 'http://localhost:9889',
+      target: 'http://192.168.31.21:9889',
+      // target: 'http://10.240.60.70:9889',//init
       changeOrigin: true,
       secure: false
     }

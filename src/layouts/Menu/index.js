@@ -35,7 +35,8 @@ class Menus extends Component {
   componentDidUpdate (nextProps) {
     const pathname = nextProps.location.pathname
     if (pathname === '/') {
-      this.props.history.push('indexPage')
+      this.props.history.push('login')
+      // this.props.history.push('indexPage')
     }
   }
   UNSAFE_componentWillReceiveProps (nextProps) {

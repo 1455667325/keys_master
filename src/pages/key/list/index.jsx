@@ -47,6 +47,7 @@ class Index extends Component {
         render: (text, record) => {
           return (
             <div className="operate-wrap">
+              <a onClick={() => this.modify(record)}>修改</a>
               <a onClick={() => this.delete(record)}>删除</a>
             </div>
           )
@@ -195,6 +196,12 @@ class Index extends Component {
         })
 
       }
+    })
+  }
+  modify=(record)=>{
+    this.setState({
+      record:record,
+      visible:true,
     })
   }
 

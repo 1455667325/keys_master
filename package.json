@@ -10,6 +10,7 @@
     "babel-eslint": "^9.0.0",
     "cnchar": "^2.2.7",
     "cnchar-trad": "^2.2.7",
+    "dotenv-cli": "^6.0.0",
     "eslint": "^5.4.0",
     "eslint-config-umi": "^0.1.5",
     "eslint-plugin-flowtype": "^2.50.0",

@@ -33,6 +33,7 @@ class Layout extends Component {
     const pathname = nextProps.history.location.pathname
     if (pathname === '/') {
       this.props.history.push('/indexPage')
+      // this.props.history.push('/login')
     } else if (pathname !== this.state.pathname) {
       window.scrollTo(0, 0)
     }

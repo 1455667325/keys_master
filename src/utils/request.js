@@ -51,12 +51,13 @@ const fetch = (url, data = {}, method) => {
   // url = `http://192.168.142.128:9889/school${url}`
   url = `http://localhost:9889/school${url}`
   // url = `http://192.168.31.21:9889/school${url}`
+  // url = `/school${url}` //init
   const headers = {}
   // 当请求为非上传类型时，设置Content-Type
   if (!(data instanceof FormData)) {
     headers['Content-Type'] = 'application/json; charset=UTF-8'
   }
-
+  let result=null
   // 处理参数
   if (method === 'post' || method === 'put') {
     // let result = new FormData()
